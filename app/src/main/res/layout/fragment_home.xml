@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hart.burgerak.HomeFragment"
+    android:padding="30dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:imeOptions="actionSearch"
+        android:ems="10"
+        android:id="@+id/fragment_home_search_input"
+        android:layout_gravity="center"
+        android:hint="Location"
+        android:textAlignment="center"
+        android:backgroundTint="#512c2c"
+        android:textCursorDrawable="@null"/>
+</FrameLayout>
