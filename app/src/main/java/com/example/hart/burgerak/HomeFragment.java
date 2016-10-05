@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
 
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.activity_main_rl_container, new ListFragment())
+                            .replace(R.id.activity_main_vg_container, new ListFragment())
                             .addToBackStack("ListFragment")
                             .commit();
                 }
