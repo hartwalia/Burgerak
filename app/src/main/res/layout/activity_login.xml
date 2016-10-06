@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main_drawer_layout"
+    android:id="@+id/activity_login_drawer_layout"
     tools:openDrawer="start"
     tools:context="com.example.hart.burgerak.MainActivity">
 
@@ -17,22 +17,25 @@
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/activity_main_toolbar"/>
+                android:id="@+id/activity_login_toolbar"/>
         </android.support.design.widget.AppBarLayout>
         <FrameLayout
-            android:id="@+id/activity_main_vg_container"
+            android:id="@+id/activity_login_vg_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
     </android.support.design.widget.CoordinatorLayout>
 
+    <!-- ask about 2nd coordinator layout to hold content -->
+
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/activity_main_navigation_view"
+        android:id="@+id/activity_login_navigation_view"
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorAccent"/>
+
 
 
 </android.support.v4.widget.DrawerLayout>

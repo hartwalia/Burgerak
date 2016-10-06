@@ -1,5 +1,6 @@
 package com.example.hart.burgerak;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mDrawerLayout.closeDrawers();
+        //ask about getApplicationContext
+        Intent launchIntent = new Intent (getApplicationContext(), LoginActivity.class);
+        startActivity(launchIntent);
         return false;
     }
 }
