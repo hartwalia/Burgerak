@@ -1,4 +1,4 @@
-package com.example.hart.burgerak;
+package com.example.hart.burgerak.ui;
 
 
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.hart.burgerak.R;
 
 
 /**
