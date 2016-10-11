@@ -1,13 +1,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.hart.burgerak.ui.LoginFragment">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.example.hart.burgerak.ui.LoginFragment"
+              android:padding="30dp">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:id="@+id/fragment_login_email_input"
+        android:hint="email"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:paddingLeft="0dp"
+        android:layout_margin="10dp"/>
 
 </FrameLayout>
