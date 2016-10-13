@@ -1,8 +1,11 @@
 package com.example.hart.burgerak.model;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import org.json.JSONObject;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by 3SHEN on 1/10/2016.
@@ -32,6 +35,8 @@ public class User {
         mEmail = jsonObject.optString("email");
         mName = jsonObject.optString("name");
         mUserToken = jsonObject.optString("user-token");
+
+        Log.d(TAG, mName.toString());
     }
 
     public String getId() {

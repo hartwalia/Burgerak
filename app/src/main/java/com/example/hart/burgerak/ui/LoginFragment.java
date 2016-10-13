@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.hart.burgerak.R;
+import com.example.hart.burgerak.api.RestAPIClient;
 
 import static android.content.ContentValues.TAG;
 
@@ -24,6 +26,7 @@ public class LoginFragment extends Fragment {
     private EditText mEmailInputEditText;
     private EditText mPasswordInputEditText;
     private Button mLoginButton;
+    private RestAPIClient mRestAPIClient;
 
     @Nullable
     @Override
@@ -46,8 +49,7 @@ public class LoginFragment extends Fragment {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, mEmailInputEditText.getText().toString());
-                Log.d(TAG, mPasswordInputEditText.getText().toString());
+                Toast.makeText(getContext(), "logged in", Toast.LENGTH_SHORT).show();
             }
         });
     }
