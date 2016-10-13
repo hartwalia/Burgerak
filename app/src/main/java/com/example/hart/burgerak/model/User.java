@@ -4,7 +4,7 @@ package com.example.hart.burgerak.model;
  * Created by 3SHEN on 1/10/2016.
  */
 
-public class Owner {
+public class User {
     private String mName;
     private String mEmail;
     private int mContactNo;
