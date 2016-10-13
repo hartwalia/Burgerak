@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.hart.burgerak.R;
+import com.example.hart.burgerak.ListRecyclerViewFragment;
 
 
 /**
@@ -47,8 +48,8 @@ public class HomeFragment extends Fragment {
 
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.activity_main_vg_container, new ListFragment())
-                            .addToBackStack("ListFragment")
+                            .replace(R.id.activity_main_vg_container, new ListRecyclerViewFragment())
+                            .addToBackStack("ListRecyclerViewFragment")
                             .commit();
                 }
                 return false;
