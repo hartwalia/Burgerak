@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
 import com.example.hart.burgerak.R;
 import com.example.hart.burgerak.api.RestAPIClient;
+import com.example.hart.burgerak.model.User;
 
 import static android.content.ContentValues.TAG;
 
@@ -26,7 +28,6 @@ public class LoginFragment extends Fragment {
     private EditText mEmailInputEditText;
     private EditText mPasswordInputEditText;
     private Button mLoginButton;
-    private RestAPIClient mRestAPIClient;
 
     @Nullable
     @Override
@@ -49,7 +50,13 @@ public class LoginFragment extends Fragment {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "logged in", Toast.LENGTH_SHORT).show();
+                RestAPIClient restAPIClient = RestAPIClient.getInstance(getActivity().getApplicationContext());
+                restAPIClient.login(mEmailInputEditText.getText().toString(), mPasswordInputEditText.getText().toString(), new RestAPIClient.OnUserAuthenticationCompleteListener() {
+                    @Override
+                    public void onComplete(User user, VolleyError error) {
+                        Toast.makeText(getContext(), "You're logged in " + user.getName() + " !", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
