@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
+import com.example.hart.burgerak.api.RestAPIClient;
+import com.example.hart.burgerak.controller.UserController;
+import com.example.hart.burgerak.model.User;
 import com.example.hart.burgerak.ui.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,7 +38,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
-        mNavigationView.inflateMenu(R.menu.navigation_drawer_menu);
+
+        if (true) {
+            mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_out);
+        }
+        else {
+            mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_in);
+        }
+
         mNavigationView.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager()
