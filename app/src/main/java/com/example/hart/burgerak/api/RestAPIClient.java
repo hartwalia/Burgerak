@@ -10,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.example.hart.burgerak.R;
+import com.example.hart.burgerak.controller.UserController;
 import com.example.hart.burgerak.model.User;
 
 import org.json.JSONException;
@@ -74,6 +75,9 @@ public class RestAPIClient {
             @Override
             public void onResponse(JSONObject response) {
                 User user = new User(response);
+                saveUserToken(user.getUserToken());
+                saveUserId(user.getId());
+                UserController.getInstance().setLoggedInUser(user);
 
                 completionListener.onComplete(user, null);
             }
@@ -86,6 +90,31 @@ public class RestAPIClient {
 
         mRequestQueue.add(request);
     }
+
+    public interface OnUserTokenValidationCompleteListener {
+        void onComplete(Boolean response, VolleyError error);
+    }
+
+//    public void validateUserToken(final OnUserTokenValidationCompleteListener completionListener) {
+//        String url = "https://api.backendless.com/v1/users/isvalidusertoken/";
+//
+//        url += loadUserToken();
+//
+//        Request request = newRequest(Request.Method.GET, url, new Response.Listener<Boolean>() {
+//            @Override
+//            public void onResponse(Boolean response) {
+//                completionListener.onComplete(PROBLEM, null);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                completionListener.onComplete(null, error);
+//            }
+//        });
+//
+//        mRequestQueue.add(request);
+//
+//    }
 
     private void saveUserToken(String token) {
         mUserToken = token;
