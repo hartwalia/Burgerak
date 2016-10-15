@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.hart.burgerak.R;
-import com.example.hart.burgerak.ListRecyclerViewFragment;
 
 
 /**

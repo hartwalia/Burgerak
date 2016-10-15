@@ -1,4 +1,4 @@
-package com.example.hart.burgerak;
+package com.example.hart.burgerak.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hart.burgerak.R;
 import com.example.hart.burgerak.controller.ListPopulator;
 
 import static android.content.ContentValues.TAG;
@@ -44,8 +45,6 @@ public class ListRecyclerViewFragment extends Fragment implements ListViewHolder
         ListRecyclerViewAdapter adapter = new ListRecyclerViewAdapter();
         adapter.setStallList(ListPopulator.LoadStall());
         mRecyclerView.setAdapter(adapter);
-
-        // TODO: Refer to code, and set a populator
     }
 
     @Override

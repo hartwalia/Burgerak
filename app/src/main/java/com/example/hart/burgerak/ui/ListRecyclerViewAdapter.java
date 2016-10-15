@@ -1,10 +1,11 @@
-package com.example.hart.burgerak;
+package com.example.hart.burgerak.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hart.burgerak.R;
 import com.example.hart.burgerak.model.Stall;
 
 import java.util.ArrayList;
