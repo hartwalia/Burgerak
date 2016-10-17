@@ -1,7 +1,5 @@
 package com.example.hart.burgerak.controller;
 
-import android.content.SharedPreferences;
-
 import com.example.hart.burgerak.model.User;
 
 /**
@@ -13,8 +11,6 @@ public class UserController {
     private static UserController sUserController;
 
     private User mLoggedInUser;
-    private String mId;
-    private SharedPreferences mSharedPreferences;
 
     private UserController() {
 
@@ -33,22 +29,7 @@ public class UserController {
     }
 
     public void setLoggedInUser(User loggedInUser) {
-
         mLoggedInUser = loggedInUser;
-        saveUserId(mLoggedInUser.getId());
-    }
-
-    public void saveUserId(String id) {
-        mId = id;
-
-        SharedPreferences.Editor editor = mSharedPreferences.edit();
-        editor.putString("USER_ID", mId);
-        editor.apply();
-    }
-
-    public String loadUserId () {
-        String id = mSharedPreferences.getString("USER_ID", null);
-        return id;
     }
 
 }
