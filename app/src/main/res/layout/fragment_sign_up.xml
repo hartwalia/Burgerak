@@ -15,8 +15,19 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/fragment_sign_up_name_input"
+        android:hint="name"
+        android:textAlignment="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:id="@+id/fragment_login_email_input"
+        android:id="@+id/fragment_sign_up_email_input"
         android:hint="email"
         android:textAlignment="center"
         android:layout_marginEnd="30dp"
@@ -27,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:id="@+id/fragment_login_password_input"
+        android:id="@+id/fragment_sign_up_password_input"
         android:hint="password"
         android:textAlignment="center"
         android:layout_marginStart="30dp"
@@ -35,23 +46,23 @@
         android:layout_marginBottom="20dp"/>
 
     <Button
-        android:text="Login"
+        android:text="Sign Up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fragment_login_btn_login"
+        android:id="@+id/fragment_sign_up_btn_sign_up"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="10dp"/>
 
     <TextView
-        android:id="@+id/fragment_login_btn_sign_up"
+        android:id="@+id/fragment_sign_up_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="20dp"
         android:textAlignment="center"
-        android:text="Not a member? Join now"
+        android:text="Already a member? Login now"
         android:textSize="14sp"
         />
 

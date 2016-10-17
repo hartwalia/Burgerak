@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -28,6 +30,7 @@ public class LoginFragment extends Fragment {
     private EditText mEmailInputEditText;
     private EditText mPasswordInputEditText;
     private Button mLoginButton;
+    private TextView mSignUpButton;
 
     @Nullable
     @Override
@@ -37,6 +40,7 @@ public class LoginFragment extends Fragment {
         mEmailInputEditText = (EditText) view.findViewById(R.id.fragment_login_email_input);
         mPasswordInputEditText = (EditText) view.findViewById(R.id.fragment_login_password_input);
         mLoginButton = (Button) view.findViewById(R.id.fragment_login_btn_login);
+        mSignUpButton = (TextView) view.findViewById(R.id.fragment_login_btn_sign_up);
 
         ViewCompat.setElevation(mEmailInputEditText, 8);
 
@@ -57,6 +61,17 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getContext(), "You're logged in " + user.getName() + " !", Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+
+        mSignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                             .beginTransaction()
+                             .replace(R.id.activity_login_vg_container, new SignUpFragment())
+                             .addToBackStack("SignUpFragment")
+                             .commit();
             }
         });
     }
