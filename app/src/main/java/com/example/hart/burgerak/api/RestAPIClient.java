@@ -25,7 +25,6 @@ public class RestAPIClient {
 
     private RequestQueue mRequestQueue;
     private String mUserToken;
-    private String mId;
     private SharedPreferences mSharedPreferences;
 
     // Private constructor for Singleton pattern
@@ -76,7 +75,6 @@ public class RestAPIClient {
             public void onResponse(JSONObject response) {
                 User user = new User(response);
                 saveUserToken(user.getUserToken());
-                saveUserId(user.getId());
                 UserController.getInstance().setLoggedInUser(user);
 
                 completionListener.onComplete(user, null);
@@ -127,18 +125,5 @@ public class RestAPIClient {
     private String loadUserToken() {
         String token = mSharedPreferences.getString("USER_TOKEN", null);
         return token;
-    }
-
-    private void saveUserId(String id) {
-        mId = id;
-
-        SharedPreferences.Editor editor = mSharedPreferences.edit();
-        editor.putString("USER_ID", mId);
-        editor.apply();
-    }
-
-    private String loadUserId () {
-        String id = mSharedPreferences.getString("USER_ID", null);
-        return id;
     }
 }
