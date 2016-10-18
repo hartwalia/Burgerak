@@ -1,6 +1,7 @@
 package com.example.hart.burgerak.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.example.hart.burgerak.R;
+import com.example.hart.burgerak.UserActivity;
 import com.example.hart.burgerak.api.RestAPIClient;
 import com.example.hart.burgerak.model.User;
 
@@ -59,6 +61,9 @@ public class LoginFragment extends Fragment {
                     @Override
                     public void onComplete(User user, VolleyError error) {
                         Toast.makeText(getContext(), "You're logged in " + user.getName() + " !", Toast.LENGTH_SHORT).show();
+
+                        Intent launchIntent = new Intent (getContext(), UserActivity.class);
+                        startActivity(launchIntent);
                     }
                 });
             }
