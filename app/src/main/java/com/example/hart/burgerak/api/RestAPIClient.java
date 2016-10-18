@@ -60,6 +60,37 @@ public class RestAPIClient {
         void onComplete(User user, VolleyError error);
     }
 
+    public void signUp(String email, String password, String name, final OnUserAuthenticationCompleteListener completionListener) {
+        String url = "https://api.backendless.com/v1/users/register";
+
+        JSONObject parameters = new JSONObject();
+        try {
+            parameters.put("name", name);
+            parameters.put("email", email);
+            parameters.put("password", password);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Request request = newRequest(Request.Method.POST, url, parameters, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                User user = new User(response);
+                saveUserToken(user.getUserToken());
+                UserController.getInstance().setLoggedInUser(user);
+
+                completionListener.onComplete(user, null);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                completionListener.onComplete(null, error);
+            }
+        });
+
+        mRequestQueue.add(request);
+    }
+
     public void login(String email, String password, final OnUserAuthenticationCompleteListener completionListener) {
         String url = "https://api.backendless.com/v1/users/login";
 
