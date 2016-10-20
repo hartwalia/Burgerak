@@ -42,11 +42,6 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
 
         mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_in);
         mNavigationView.setNavigationItemSelectedListener(this);
-
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .add(R.id.activity_user_vg_container, new HomeFragment())
-//                .commit();
     }
 
     @Override

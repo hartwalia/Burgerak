@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_login_toolbar);
         setSupportActionBar(toolbar);
-        setTitle(R.string.activity_login_title);
+        //setTitle(R.string.activity_login_title);
 
         getSupportFragmentManager()
                 .beginTransaction()

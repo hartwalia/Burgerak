@@ -1,6 +1,7 @@
 package com.example.hart.burgerak;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ViewGroup mContentViewGroup;
     private NavigationView mNavigationView;
     private Toolbar mToolbar;
+    private SharedPreferences mSharedPreferences;
+    private String mUserToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +42,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
+        mSharedPreferences = getSharedPreferences(getString(R.string.pref_file_key), MODE_PRIVATE);
+        mUserToken = mSharedPreferences.getString("USER_TOKEN", null);
 
-        if (true) {
+        if (mUserToken == null) {
             mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_out);
         }
         else {
@@ -68,8 +73,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mDrawerLayout.closeDrawers();
         //ask about getApplicationContext
-        Intent launchIntent = new Intent (getApplicationContext(), LoginActivity.class);
-        startActivity(launchIntent);
+
+        int id = item.getItemId();
+
+        switch (id) {
+
+            case R.id.login:
+                Intent launchIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(launchIntent);
+                break;
+            case R.id.logout:
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putString("USER_TOKEN", null);
+                editor.apply();
+
+                launchIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(launchIntent);
+                break;
+        }
         return false;
     }
 }
