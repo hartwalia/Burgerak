@@ -1,6 +1,7 @@
 package com.example.hart.burgerak;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hart.burgerak.ui.HomeFragment;
+import com.example.hart.burgerak.ui.UserProfileFragment;
 
 public class UserActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,6 +25,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
     private ViewGroup mContentViewGroup;
     private NavigationView mNavigationView;
     private Toolbar mToolbar;
+    private SharedPreferences mSharedPreferences;
+    private String intentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,19 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
 
         mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_in);
         mNavigationView.setNavigationItemSelectedListener(this);
+
+        intentFragment = getIntent().getExtras().getString("fragment_to_load");
+
+        switch (intentFragment) {
+            case "user_profile":
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.activity_user_vg_container, new UserProfileFragment())
+                        .commit();
+                break;
+            case "user_stall":
+                break;
+        }
     }
 
     @Override
@@ -56,9 +73,23 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mDrawerLayout.closeDrawers();
-        //ask about getApplicationContext
-        Intent launchIntent = new Intent (getApplicationContext(), LoginActivity.class);
-        startActivity(launchIntent);
+
+        Intent launchIntent;
+        int id = item.getItemId();
+
+        switch (id) {
+
+            case R.id.logout:
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putString("USER_TOKEN", null);
+                editor.apply();
+                finish();
+                break;
+            case R.id.profile:
+                break;
+            case R.id.stall:
+                break;
+        }
         return false;
     }
 

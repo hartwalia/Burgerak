@@ -60,6 +60,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .commit();
     }
 
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//
+//        mToolbar.getMenu().clear();
+//
+//        mSharedPreferences = getSharedPreferences(getString(R.string.pref_file_key), MODE_PRIVATE);
+//        mUserToken = mSharedPreferences.getString("USER_TOKEN", null);
+//
+//        if (mUserToken == null) {
+//            mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_out);
+//        }
+//        else {
+//            mNavigationView.inflateMenu(R.menu.navigation_drawer_menu_logged_in);
+//        }
+//    }
+
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -72,14 +89,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mDrawerLayout.closeDrawers();
-        //ask about getApplicationContext
 
+        Intent launchIntent;
         int id = item.getItemId();
 
         switch (id) {
 
             case R.id.login:
-                Intent launchIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                launchIntent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(launchIntent);
                 break;
             case R.id.logout:
@@ -87,8 +104,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 editor.putString("USER_TOKEN", null);
                 editor.apply();
 
-                launchIntent = new Intent(getApplicationContext(), MainActivity.class);
+//                launchIntent = new Intent(getApplicationContext(), MainActivity.class);
+//                launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(launchIntent);
+
+                finish();
+                break;
+            case R.id.profile:
+                launchIntent = new Intent(getApplicationContext(), UserActivity.class);
+                launchIntent.putExtra("fragment_to_load", "user_profile");
                 startActivity(launchIntent);
+                finish();
+                break;
+            case R.id.stall:
+                launchIntent = new Intent(getApplicationContext(), UserActivity.class);
+                launchIntent.putExtra("fragment_to_load", "user_stall");
+                startActivity(launchIntent);
+                finish();
                 break;
         }
         return false;
