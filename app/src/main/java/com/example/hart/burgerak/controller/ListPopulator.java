@@ -15,17 +15,20 @@ public class ListPopulator {
         List<Stall> tempList = new ArrayList<>();
 
         Stall stall = new Stall();
-        stall.setDistance("1 km");
-        stall.setName("N");
+        stall.setName("Zally's Burger Stand");
         stall.setStatus("Open");
 
         Stall stall2 = new Stall();
-        stall2.setDistance("1 km");
-        stall2.setName("M");
+        stall2.setName("Burger Bakar Kaw");
         stall2.setStatus("Open");
+
+        Stall stall3 = new Stall();
+        stall3.setName("Sausage Bakar Kaw Kaw");
+        stall3.setStatus("Open");
 
         tempList.add(stall);
         tempList.add(stall2);
+        tempList.add(stall3);
 
         return tempList;
     }

@@ -8,7 +8,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/fragment_user_profile_layout"
+            android:id="@+id/fragment_user_stall_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#eb6007"
@@ -16,24 +16,24 @@
             android:paddingBottom="24dp">
 
             <TextView
-                android:id="@+id/fragment_user_profile_name"
+                android:id="@+id/fragment_user_stall_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="76dp"
-                android:text=""
+                android:text="Zally's Burger Stand"
                 android:textColor="#fff"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/fragment_user_profile_bio"
+                android:id="@+id/fragment_user_stall_bio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_user_profile_name"
+                android:layout_below="@+id/fragment_user_stall_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="12dp"
-                android:text="Burger Bro"
+                android:text="My Stall"
                 android:textColor="#fff"
                 android:textSize="14sp" />
         </RelativeLayout>
@@ -42,12 +42,12 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_user_profile_layout"
+            android:layout_below="@+id/fragment_user_stall_layout"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/fragment_user_profile_name_input"
+                android:id="@+id/fragment_user_stall_name_input"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -55,11 +55,11 @@
                 android:clickable="true"
                 android:elevation="4dp"
                 android:padding="20dp"
-                android:text=""
+                android:text="Zally's Burger Stand"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/fragment_user_profile_email_input"
+                android:id="@+id/fragment_user_stall_location_input"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -69,11 +69,11 @@
                 android:clickable="true"
                 android:elevation="4dp"
                 android:padding="20dp"
-                android:text=""
+                android:text="Cyberjaya"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/fragment_user_profile_contact_input"
+                android:id="@+id/fragment_user_stall_time_input"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -81,7 +81,19 @@
                 android:clickable="true"
                 android:elevation="4dp"
                 android:padding="20dp"
-                android:text=""
+                android:text="Operation hours : 1800 - 0130"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/fragment_user_stall_day_input"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#fff"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:padding="20dp"
+                android:text="Closed days : Mondays, Thursdays"
                 android:textSize="16sp"/>
 
         </LinearLayout>

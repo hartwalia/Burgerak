@@ -29,13 +29,11 @@ public class ListViewHolder extends RecyclerView.ViewHolder {
         mImageView = (ImageView) itemView.findViewById(R.id.item_viewholder_iv_name);
         mNameTextView = (TextView) itemView.findViewById(R.id.item_viewholder_tv_name);
         mStatusTextView = (TextView) itemView.findViewById(R.id.item_viewholder_tv_status);
-        mDistanceTextView = (TextView) itemView.findViewById(R.id.item_viewholder_tv_distance);
     }
 
     // Method to set the ViewHolder
     public void setStall(Stall stall, int position) {
-        mNameTextView.setText("Name: " + stall.getName() + position);
-        mStatusTextView.setText("Status: " + stall.getStatus());
-        mDistanceTextView.setText("Distance: " + stall.getDistance());
+        mNameTextView.setText(stall.getName());
+        mStatusTextView.setText("Status : " + stall.getStatus());
     }
 }

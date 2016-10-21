@@ -25,14 +25,12 @@ public class UserProfileFragment extends Fragment {
     private TextView mContactInputEditText;
     private TextView mNameInputEditText;
 
-    User user;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
 
-        user = UserController.getInstance().getLoggedInUser();
+        User user = UserController.getInstance().getLoggedInUser();
 
         mNameInputEditText = (TextView) view.findViewById(R.id.fragment_user_profile_name_input);
         mEmailInputEditText = (TextView) view.findViewById(R.id.fragment_user_profile_email_input);

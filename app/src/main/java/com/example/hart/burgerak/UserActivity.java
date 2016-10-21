@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.example.hart.burgerak.ui.HomeFragment;
 import com.example.hart.burgerak.ui.UserProfileFragment;
+import com.example.hart.burgerak.ui.UserStallFragment;
 
 public class UserActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -53,10 +54,14 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
             case "user_profile":
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .add(R.id.activity_user_vg_container, new UserProfileFragment())
+                        .replace(R.id.activity_user_vg_container, new UserProfileFragment())
                         .commit();
                 break;
             case "user_stall":
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.activity_user_vg_container, new UserStallFragment())
+                        .commit();
                 break;
         }
     }
@@ -86,8 +91,16 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.profile:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.activity_user_vg_container, new UserProfileFragment())
+                        .commit();
                 break;
             case R.id.stall:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.activity_user_vg_container, new UserStallFragment())
+                        .commit();
                 break;
         }
         return false;
