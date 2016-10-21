@@ -63,6 +63,7 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getContext(), "You're logged in " + user.getName() + " !", Toast.LENGTH_SHORT).show();
 
                         Intent launchIntent = new Intent (getContext(), UserActivity.class);
+                        launchIntent.putExtra("fragment_to_load", "user_profile");
                         startActivity(launchIntent);
                     }
                 });
